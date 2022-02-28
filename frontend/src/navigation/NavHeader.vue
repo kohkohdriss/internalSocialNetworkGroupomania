@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import NavLogoWhite from "./NavLogoWhite"
-import NavUserMenu from "./NavUserMenu"
-import NavDefault from "./NavDefault"
+import NavLogoWhite from "./NavLogoWhite.vue"
+import NavUserMenu from "./NavUserMenu.vue"
+import NavDefault from "./NavDefault.vue"
 
 export default {
     name: "NavHeader",

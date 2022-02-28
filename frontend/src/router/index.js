@@ -24,37 +24,37 @@ const routes = [
     {
         path: "/compte/messages",
         name: "Mes Messages",
-        component: () => import("../components/MessagesUser")
+        component: () => import("../message/MessagesUser.vue")
     },
     {
         path: "/messages",
         name: "Messages",
-        component: () => import("../components/Messages")
+        component: () => import("../message/Messages")
     },
     {
         path: "/message/edit/:id",
         name: "Message Edit",
-        component: () => import("../components/MessageEdit")
+        component: () => import("../message/MessageEdit")
     },
     {
         path: "/message/drop/:id",
         name: "Message Drop",
-        component: () => import("../components/MessageDrop")
+        component: () => import("../message/MessageDrop")
     },
     {
         path: "/commentaires/:id",
         name: "Commentaires",
-        component: () => import("../components/Commentaires")
+        component: () => import("../commentaire/Commentaires.vue")
     },
     {
         path: "/commentaire/edit/:id",
         name: "Commentaires Edit",
-        component: () => import("../components/CommentaireEdit")
+        component: () => import("../commentaire/CommentaireEdit")
     },
     {
         path: "/commentaire/drop/:id",
         name: "Commentaires Drop",
-        component: () => import("../components/CommentaireDrop")
+        component: () => import("../commentaire/CommentaireDrop")
     }
 ]
 
