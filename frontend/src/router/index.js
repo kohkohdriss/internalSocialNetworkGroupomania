@@ -62,7 +62,7 @@ const router = createRouter({
     history: createWebHashHistory(),
     routes
 })
-
+//redirection ou annulation des routes
 router.beforeEach((to, from, next) => {
    const publicPages = ["/", "/connexion", "/inscription"]
     const authRequired = !publicPages.includes(to.path)

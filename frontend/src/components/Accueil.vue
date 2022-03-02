@@ -10,7 +10,8 @@
                     </div>
                     <div class="card-body">
                         <p>Le réseau social est fait pour les employés de Groupomania</p>
-                        <p>Si vous êtes un employé, vous voulez accéder, cliquez sur ce lien pour se <router-link to="/connexion">connecter</router-link>, sinon vous pouvez vous <router-link to="/inscription">inscrire</router-link></p>
+                        <p>Si vous êtes un employé, vous voulez accéder, cliquez sur ce lien pour se <router-link to="/connexion">connecter</router-link>,
+                         sinon vous pouvez vous <router-link to="/inscription">inscrire</router-link></p>
                     </div>
                     <div class="card-footer bg-light d-flex justify-content-between">
                         <span class="text-dark">Bonne navigation !</span>

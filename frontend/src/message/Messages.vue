@@ -14,6 +14,7 @@
                                     <div class="row modal-body">
                                         <div class="col-12 justify-content-center form-group">
                                             <label for="newMessage" class="sr-only">Message :</label>
+                                            <!-- directive v-model="something" -->
                                             <textarea class="form-control" v-model="newMessage" id="newMessage" name="message" rows="10" placeholder="Votre message ici..."></textarea>
                                         </div>
                                         <div class="col-12 justify-content-center text-center">
@@ -43,7 +44,7 @@
                                 <img :src="message.avatar" height="40" class="m-0 rounded-circle"/>
                                 <span class="small text-dark m-0 p-1" >
                                     Posté par {{message.userName}} 
-                                    <!-- <span v-if="!message.isActive" class="small text-danger">(supprimé)</span>,  -->
+                                    <span v-if="!message.isActive" class="small text-danger">(supprimé)</span>,
                                     le {{message.createdAt.slice(0,10).split('-').reverse().join('/') + ' à ' + message.createdAt.slice(11,16)}}
                                 </span>
                             </div>                                
@@ -105,19 +106,16 @@ export default {
             formData.set("message", this.newMessage.toString())
             axios.post("http://127.0.0.1:3000/api/messages/", formData, { headers: { "Authorization":"Bearer " + localStorage.getItem("token")}})
             .then(()=> {
-                location.reload()
-                // this.UserId = ""
-                // this.newMessage = ""
-                // this.file = null
-                // Swal.fire({
-                //     text: "Message posté !",
-                //     footer: "Redirection en cours...",
-                //     icon: "success",
-                //     timer: 2000,
-                //     showConfirmButton: false,
-                //     timerProgressBar: true,
-                //     willClose: () => { location.reload() }
-                // })
+                //  location.reload() : recharge la ressource depuis l'URL actuelle
+                Swal.fire({
+                    text: "Message posté !",
+                    footer: "Redirection en cours...",
+                    icon: "success",
+                    timer: 2000,
+                    showConfirmButton: false,
+                    timerProgressBar: true,
+                    willClose: () => { location.reload() }
+                })
             })
             .catch((error)=>{
                 const codeError = error.message.split("code ")[1]
@@ -137,18 +135,19 @@ export default {
             })
         }
     },
+    //le hook created est appelé une fois l’instance créée :
     created: function() {
         this.isAdmin = localStorage.getItem("role")
         this.currentUserId = localStorage.getItem("userId")
         if (localStorage.getItem("refresh")===null) {
-            localStorage.setItem("refresh", 0)
-            location.reload()
-        }
+           localStorage.setItem("refresh", 0)
+           location.reload()
+         }
         axios.get("http://127.0.0.1:3000/api/messages",{ headers: {"Authorization": "Bearer " + localStorage.getItem("token")} })
         .then(res => {
             const rep = res.data.ListeMessages
             if (rep.length === 0) { this.noMessage = true } else { this.noMessage = false }
-            this.messages = rep
+           this.messages = rep
         })
         .catch((error)=>{
             const codeError = error.message.split("code ")[1]

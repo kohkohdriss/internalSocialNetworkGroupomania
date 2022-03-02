@@ -17,7 +17,7 @@
                                     le {{oneMessage.createdAt}}
                                 </span>
                             </div>
-                            <div :id="'adus' + oneMessage.id" v-if="oneMessage.userId == this.currentUserId || this.isAdmin == 'true'">
+                            <div  v-if="oneMessage.userId == this.currentUserId || this.isAdmin == 'true'">
                                 <a :href="'#/message/edit/' + oneMessage.id"><img src="/images/edit.svg" class="m-1 p-0" alt="Editer le message" title="Editer le message"/></a>
                                 <a :href="'#/message/drop/' + oneMessage.id"><img src="/images/drop.svg" class="m-1 p-0" alt="Supprimer le message" title="Supprimer le message"/></a>
                             </div>                               
@@ -70,7 +70,7 @@
                                     <span v-if="!comment.User.isActive" class="small text-danger">(supprimé)</span>, 
                                     le {{comment.createdAt.slice(0,10).split('-').reverse().join('/')}}
                                 </span>
-                                <div :id="'adcom' + comment.id"  v-if="comment.UserId == this.currentUserId || this.isAdmin == 'true'">
+                                <div  v-if="comment.UserId == this.currentUserId || this.isAdmin == 'true'">
                                     <a :href="'#/commentaire/edit/' + comment.id"><img src="/images/edit.svg" class="m-1 p-0" alt="Editer le message" title="Editer le message"/></a>
                                     <a :href="'#/commentaire/drop/' + comment.id"><img src="/images/drop.svg" class="m-1 p-0" alt="Supprimer le message" title="Supprimer le message"/></a>
                                 </div>
