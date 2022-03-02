@@ -57,7 +57,7 @@ export default {
                 localStorage.setItem("userId",response.data.userId)
                 localStorage.setItem("userName",response.data.userName)
                 localStorage.setItem("avatar",response.data.avatar)
-                localStorage.setItem("role",response.data.role)
+                localStorage.setItem("role",response.data.role)              
                 Swal.fire({
                     text: "Connexion réussie !",
                     footer: "Redirection en cours...",
@@ -66,7 +66,8 @@ export default {
                     showConfirmButton: false,
                     timerProgressBar: true,
                     willClose: () => { router.push("/messages") }
-                })  
+                }) 
+                  
             })
             .catch(function(error) {
                 const codeError = error.message.split("code ")[1]

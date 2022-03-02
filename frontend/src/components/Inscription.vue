@@ -13,7 +13,7 @@
                             <form @submit.prevent="handleSubmit">
                                 <div class="form-group">
                                     <label for="InputName" class="sr-only">Nom d'utilisateur :</label>
-                                    <input type="text" v-model="InputName" name="InputName" class="form-control" id="InputName" aria-describedby="nameHelp" placeholder="nom d'utilisateur" >
+                                    <input type="text" v-model="InputName" name="InputName" class="form-control" id="InputName" aria-describedby="nameHelp" placeholder="nom d'utilisateur" :class="{ 'is-invalid': submitted && !InputName }" >
                                     <div v-show="submitted && !InputName" class="invalid-feedback">Un nom d'utilisateur est requis !</div>
                                 </div>
                                 <div class="form-group">

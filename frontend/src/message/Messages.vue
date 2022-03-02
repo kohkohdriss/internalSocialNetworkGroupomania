@@ -43,7 +43,7 @@
                                 <img :src="message.avatar" height="40" class="m-0 rounded-circle"/>
                                 <span class="small text-dark m-0 p-1" >
                                     Posté par {{message.userName}} 
-                                    <span v-if="!message.isActive" class="small text-danger">(supprimé)</span>, 
+                                    <!-- <span v-if="!message.isActive" class="small text-danger">(supprimé)</span>,  -->
                                     le {{message.createdAt.slice(0,10).split('-').reverse().join('/') + ' à ' + message.createdAt.slice(11,16)}}
                                 </span>
                             </div>                                
